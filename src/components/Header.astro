@@ -1,0 +1,25 @@
+---
+import Lenguage from "./icons/Lenguage.astro";
+import Download from "./icons/Download.astro";
+---
+
+<header
+    class="w-full overflow-x-hidden h-[5rem] flex justify-center bg-opacity-70 fixed top-0 left-0 z-10 backdrop-blur-lg subpixel-antialiased"
+>
+    <nav
+        class="flex justify-between items-center w-full max-w-[1280px] mx-auto py-5 px-5"
+    >
+        <div>
+            <span class="bg-white p-1 text-md font-bold rounded-md">DC</span>
+        </div>
+        <div class="flex items-center gap-5">
+            <Lenguage class="text-white size-6" />
+            <button
+                class="bg-white px-4 py-2 rounded-full flex items-center gap-2 hover:scale-105 transition font-semibold"
+            >
+                <Download class="size-4" />
+                Dowload CV
+            </button>
+        </div>
+    </nav>
+</header>
