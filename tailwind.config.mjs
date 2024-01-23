@@ -8,7 +8,8 @@ export default {
 			},
 
 			animation: {
-				"background-shine": "background-shine 2s linear infinite"
+				"background-shine": "background-shine 2s linear infinite",
+				'infinite-scroll': 'infinite-scroll 15s linear infinite',
 			  },
 			keyframes: {
 				"background-shine": {
@@ -18,6 +19,10 @@ export default {
 				  "to": {
 					"backgroundPosition": "-200% 0"
 				  }
+				},
+				'infinite-scroll': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(-100%)' },
 				}
 			  }
 		},
