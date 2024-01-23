@@ -1,0 +1,23 @@
+---
+import Mail from "./icons/Mail.astro";
+import Linkedin from "./icons/Linkedin.astro";
+---
+
+<footer
+    class="bg-white/5 p-10 my-20 rounded-2xl text-white/35 flex flex-col sm:flex-row gap-5 justify-between items-center text-center sm:text-left"
+>
+    <div>
+        <p>&copy; Daniel Castillo. Todos los derechos reservados</p>
+        <p class="hidden sm:block">Made with ❤️ and Astro🚀</p>
+    </div>
+    <div>
+        <div class="flex gap-2 items-center text-white">
+            <a href="mailto:danielcastillobalboa@gmail.com">
+                <Mail class="size-6 hover:scale-110 transition" />
+            </a>
+            <a href="https://www.linkedin.com/in/daniel-castillo-balboa">
+                <Linkedin class="size-5 hover:scale-110 transition" />
+            </a>
+        </div>
+    </div>
+</footer>

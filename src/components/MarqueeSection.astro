@@ -41,32 +41,36 @@ export const TECNOLOGIES = [
 ---
 
 <div
-    class="w-full inline-flex flex-nowrap overflow-hidden mt-10 bg-white/10 py-10 rounded-2xl [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+    class="w-full inline-flex flex-nowrap overflow-hidden mt-10 bg-white/5 py-10 rounded-2xl [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
 >
     <ul
-        class="flex gap-12 items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+        class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
     >
         {
             TECNOLOGIES.map((item) => (
-                <img
-                    src={`${item.src}`}
-                    alt={`imagen de ${item.name}`}
-                    class="h-14 w-auto grayscale hover:grayscale-0 transition"
-                />
+                <li>
+                    <img
+                        src={`${item.src}`}
+                        alt={`imagen de ${item.name}`}
+                        class="h-14 w-auto grayscale hover:grayscale-0 transition"
+                    />
+                </li>
             ))
         }
     </ul>
     <ul
-        class="flex gap-12 ml-12 items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+        class="flex ml-12 items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
         aria-hidden="true"
     >
         {
             TECNOLOGIES.map((item) => (
-                <img
-                    src={`${item.src}`}
-                    alt={`imagen de ${item.name}`}
-                    class="h-14 w-auto grayscale hover:grayscale-0 transition"
-                />
+                <li>
+                    <img
+                        src={`${item.src}`}
+                        alt={`imagen de ${item.name}`}
+                        class="h-14 w-auto grayscale hover:grayscale-0 transition"
+                    />
+                </li>
             ))
         }
     </ul>
