@@ -1,0 +1,81 @@
+---
+import HeadingText from "./HeadingText.astro";
+import Logo from "./Logo.astro";
+import Link from "./icons/Link.astro";
+
+const EXPERIENCE = [
+    {
+        nombre: "Gartoll",
+        puesto: "Front-End Developer",
+        duration: "2022 - Actualidad",
+        url: "https://gartoll-new-web.vercel.app/",
+        logo: "/images/gartoll-logo.webp",
+        icon: null,
+        bg_url: "/images/bg-2.webp",
+    },
+    {
+        nombre: "Freelance",
+        puesto: "Web Developer",
+        duration: "2021 - 2022",
+        url: "https://github.com/TheDaidor2001",
+        logo: null,
+        icon: Logo,
+        bg_url: "/images/bg-gartoll.webp",
+    },
+];
+---
+
+<section class="my-64 lg:my-20">
+    <HeadingText
+        title="Experiencia"
+        subtitle="He trabajado en proyectos para empresas como"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+        {
+            EXPERIENCE.map((item) => (
+                <article class="relative rounded-2xl w-full  h-96 overflow-hidden group">
+                    <div class="w-screen h-full absolute -z-10 group-hover:scale-105 transition duration-300 opacity-50">
+                        <img
+                            src={`${item.bg_url}`}
+                            class="w-full md:w-auto"
+                            alt=""
+                        />
+                    </div>
+                    <div class="z-50 p-10 h-full flex flex-col justify-between">
+                        <div>
+                            {item.logo && (
+                                <img
+                                    src={`${item.logo}`}
+                                    alt={`Imagen de ${item.nombre}`}
+                                    class="size-20 mx-auto"
+                                />
+                            )}
+                            {item.icon && (
+                                <item.icon
+                                    class="text-4xl px-3 py-3 "
+                                    classDiv="mt-5 mb-9"
+                                />
+                            )}
+                            <p class="text-2xl text-center text-white mt-3 font-semibold">
+                                {item.puesto}
+                            </p>
+                            <p class="text-center text-white/80">
+                                {item.duration}
+                            </p>
+                        </div>
+                        <a
+                            href={`${item.url}`}
+                            target="_blank"
+                            rel="norefered"
+                            class="flex gap-2 text-white mx-auto bg-cyan-600 px-5 py-2 rounded-2xl hover:bg-cyan-700 transition-colors"
+                        >
+                            Visita {item.nombre}
+                            <Link />
+                        </a>
+                    </div>
+                </article>
+            ))
+        }
+    </div>
+</section>
