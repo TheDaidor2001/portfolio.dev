@@ -1,0 +1,73 @@
+---
+export const TECNOLOGIES = [
+    {
+        name: "Javascript",
+        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR09-LVBwCm3Ge2T9lmYQi1PXULql89DIGpelFz1-aT5Q&s",
+    },
+
+    {
+        name: "TypeScript",
+        src: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+    },
+    {
+        name: "React",
+        src: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    },
+    {
+        name: "Vue",
+        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/375px-Vue.js_Logo_2.svg.png",
+    },
+    {
+        name: "NextJS",
+        src: "https://www.svgrepo.com/show/354113/nextjs-icon.svg",
+    },
+    {
+        name: "TailwindCSS",
+        src: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg",
+    },
+    {
+        name: "HTML5",
+        src: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+    },
+    {
+        name: "SASS",
+        src: "https://www.svgrepo.com/show/374061/sass.svg",
+    },
+    {
+        name: "PostgresSQL",
+        src: "https://www.postgresql.org/media/img/about/press/elephant.png",
+    },
+];
+---
+
+<div
+    class="w-full inline-flex flex-nowrap overflow-hidden mt-10 bg-white/10 py-10 rounded-2xl [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+>
+    <ul
+        class="flex gap-12 items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+    >
+        {
+            TECNOLOGIES.map((item) => (
+                <img
+                    src={`${item.src}`}
+                    alt={`imagen de ${item.name}`}
+                    class="h-14 w-auto grayscale hover:grayscale-0 transition"
+                />
+            ))
+        }
+    </ul>
+    <ul
+        class="flex gap-12 ml-12 items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+        aria-hidden="true"
+    >
+        {
+            TECNOLOGIES.map((item) => (
+                <img
+                    src={`${item.src}`}
+                    alt={`imagen de ${item.name}`}
+                    class="h-14 w-auto grayscale hover:grayscale-0 transition"
+                />
+            ))
+        }
+    </ul>
+</div>
