@@ -1,0 +1,92 @@
+---
+import SocialBtn from "../SocialBtn.astro";
+import Github from "../icons/Github.astro";
+import Linkedin from "../icons/Linkedin.astro";
+import Mail from "../icons/Mail.astro";
+
+const SOCIALITEMS = [
+    {
+        text: "Github",
+        icon: Github,
+        url: "https://github.com/TheDaidor2001",
+    },
+    {
+        text: "Linkedin",
+        icon: Linkedin,
+        url: "https://www.linkedin.com/in/daniel-castillo-balboa",
+    },
+    {
+        text: "Email",
+        icon: Mail,
+        url: "mailto:danielcastillobalboa@gmail.com",
+    },
+];
+---
+
+<section class="grid grid-cols-6 grid-rows-12 gap-5 h-96">
+    <div
+        class="relative bg-main bg-cover bg-center col-span-6 lg:col-span-4 row-span-12 rounded-2xl overflow-hidden"
+    >
+        <div class="absolute -z-10 w-full h-full top-0 bg-black opacity-10">
+        </div>
+        <div class="absolute top-5 right-5">
+            <a
+                href="https://www.linkedin.com/in/daniel-castillo-balboa"
+                target="_blank"
+                rel="norefered"
+                class="inline-flex h-full animate-background-shine cursor-pointer items-center justify-center gap-3 rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-3 py-2 text-sm font-medium text-slate-300 backdrop-blur-3xl hover:scale-105 transition"
+            >
+                <span class="bg-green-500 w-4 h-4 rounded-full animate-pulse"
+                ></span>
+                Open To Work
+            </a>
+        </div>
+        <div
+            class="w-full z-50 h-full p-5 flex flex-col content-end justify-end"
+        >
+            <h1 class="text-white text-3xl">Daniel Castillo Balboa</h1>
+            <h2 class="text-white text-lg">Front-End Developer</h2>
+            <div class="flex gap-x-5 mt-2">
+                {
+                    SOCIALITEMS.map((item) => (
+                        <SocialBtn href={item.url}>
+                            <item.icon class="size-4 text-black" />
+                            <p class="text-black font-medium hidden sm:block">
+                                {item.text}
+                            </p>
+                        </SocialBtn>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+    <div
+        class="bg-white/10 h-full flex flex-col justify-center content-center col-span-6 lg:col-span-2 row-span-6 rounded-2xl p-10"
+    >
+        <h3 class="text-2xl text-white">About Me</h3>
+        <p class="text-white/45 test-sm">
+            Web Developer with experience in the creation and maintenance of web
+            applications.
+        </p>
+    </div>
+    <div class="grid grid-cols-2 gap-5 col-span-6 lg:col-span-2 row-span-6">
+        <div
+            class="bg-white/10 col-span-1 rounded-2xl text-center flex flex-col justify-center content-center relative"
+        >
+            <p class="text-6xl text-white font-bold">+2</p>
+            <p class="text-sm text-white/60">Years of experience</p>
+        </div>
+        <div
+            class="bg-white/10 col-span-1 rounded-2xl flex flex-col justify-center content-center py-5"
+        >
+            <img
+                src="/images/yo.png"
+                class="w-14 md:w-20 h-auto mx-auto"
+                alt="Imagen emoji de Daniel Castillo"
+            />
+            <p class="text-white/60 text-sm text-center mt-2">
+                From La Rioja, Spain
+            </p>
+        </div>
+    </div>
+</section>

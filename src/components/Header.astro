@@ -5,7 +5,7 @@ import Logo from "./Logo.astro";
 ---
 
 <header
-    class="w-full overflow-x-hidden h-[5rem] flex justify-center bg-opacity-70 fixed top-0 left-0 z-10 backdrop-blur-lg subpixel-antialiased"
+    class="w-full h-[5rem] flex justify-center bg-opacity-70 fixed top-0 left-0 z-10 backdrop-blur-lg subpixel-antialiased"
 >
     <nav
         class="flex justify-between items-center w-full max-w-[1280px] mx-auto py-5 px-5"
@@ -14,7 +14,15 @@ import Logo from "./Logo.astro";
             <Logo />
         </div>
         <div class="flex items-center gap-5">
-            <Lenguage class="text-white size-6" />
+            <div class="relative group">
+                <Lenguage class="text-white size-6 cursor-pointer" />
+                <div
+                    class="absolute top-6 right-0 w-auto h-auto z-50 bg-white/5 p-5 text-white hidden group-hover:block rounded-2xl"
+                >
+                    <a href="/en">Ingles</a>
+                    <a href="/">Español</a>
+                </div>
+            </div>
             <a
                 href="/cv/cvSpanish.pdf"
                 target="_blank"
