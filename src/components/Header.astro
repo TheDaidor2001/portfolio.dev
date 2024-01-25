@@ -2,6 +2,10 @@
 import Lenguage from "./icons/Lenguage.astro";
 import Download from "./icons/Download.astro";
 import Logo from "./Logo.astro";
+
+const { pathname } = Astro.url;
+const getlocaleCV =
+    pathname === "/" ? "/cv/cvSpanish.pdf" : "/cv/cvEnglish.pdf";
 ---
 
 <header
@@ -19,12 +23,16 @@ import Logo from "./Logo.astro";
                 <div
                     class="absolute top-6 right-0 w-auto h-auto z-50 bg-gray-900 p-5 text-white hidden group-hover:block rounded-2xl transition"
                 >
-                    <a href="/en">Ingles</a>
-                    <a href="/">Español</a>
+                    <a href="/">
+                        {pathname === "/" ? "Español" : "Spanish"}
+                    </a>
+                    <a href="/en">
+                        {pathname === "/" ? "Inglés" : "English"}
+                    </a>
                 </div>
             </div>
             <a
-                href="/cv/cvSpanish.pdf"
+                href={getlocaleCV}
                 target="_blank"
                 class="bg-white px-4 py-2 rounded-full flex items-center gap-2 hover:scale-105 transition font-semibold"
             >
