@@ -1,5 +1,24 @@
 ---
 import HeadingText from "./HeadingText.astro";
+import Proyects from "./icons/Proyects.astro";
+import Arrow from "./icons/Arrow-up-left.astro";
+
+const PROYECTOS = [
+    {
+        title: "Teslo Shop - Tienda virtual",
+        description: "Tienda virtual de ropa",
+        technologies: [
+            "Next.js",
+            "TailwindCSS",
+            "PostgresSQL",
+            "Zustand",
+            "Typescript",
+            "Auth.js",
+        ],
+        image: "/iamges/teslo-shop.png",
+        link: "https://tesla-shop-daniel.vercel.app/",
+    },
+];
 ---
 
 <section class="my-20">
@@ -7,4 +26,126 @@ import HeadingText from "./HeadingText.astro";
         title="Proyectos"
         subtitle="Algunos de los proyectos en los que he trabajado"
     />
+
+    <div class="grid grid-cols-2 grid-rows-12 mt-10 min-h-[700px] gap-5">
+        <article
+            class="flex flex-col bg-white/10 w-full h-[500px] lg:h-au col-span-2 lg:col-span-1 row-span-7 rounded-2xl px-10 p-8 overflow-hidden relative group"
+        >
+            <div class="flex justify-between items-center">
+                <div class="flex gap-3 text-white/45 items-center">
+                    <Proyects class="size-5" />
+                    <h3 class="uppercase font-semibold">Experiencia Laboral</h3>
+                </div>
+                <a
+                    href="https://tesla-shop-daniel.vercel.app/"
+                    target="_blank"
+                    rel="norefered"
+                    class="border-2 border-white/20 rounded-full p-2 cursor-pointer hover:bg-white/20 hover:border-transparent group/item transition-colors duration-200"
+                >
+                    <Arrow
+                        class="size-5 text-white/45 group-hover/item:text-white"
+                    />
+                </a>
+            </div>
+            <h2 class="mt-1 text-2xl text-white font-semibold">
+                Teslo Shop - Tienda virtual
+            </h2>
+            <p class="text-white/40 mt-2 text-lg text-pretty">
+                Tienda virtual de ropa
+            </p>
+            <div class="flex flex-wrap gap-2 w-full mt-1">
+                {
+                    PROYECTOS[0].technologies.map((item) => (
+                        <span class="text-white/80">{item}</span>
+                    ))
+                }
+            </div>
+            <img
+                src="/images/teslo-shop.png"
+                alt="Imagen de la web de teslo shop creada por daniel castillo"
+                class="w-[1920px] object-cover absolute top-80 sm:top-60 md:top-52 right-0 group-hover:scale-105 transition duration-300 rounded-2xl"
+            />
+        </article>
+        <article
+            class="flex flex-col bg-white/10 w-full col-span-2 lg:col-span-1 row-span-5 rounded-2xl px-10 p-8 overflow-hidden relative group"
+        >
+            <div class="flex justify-between items-center">
+                <div class="flex gap-3 text-white/45 items-center">
+                    <Proyects class="size-5" />
+                    <h3 class="uppercase font-semibold">Experiencia Laboral</h3>
+                </div>
+                <a
+                    href="https://tesla-shop-daniel.vercel.app/"
+                    target="_blank"
+                    rel="norefered"
+                    class="border-2 border-white/20 rounded-full p-2 cursor-pointer hover:bg-white/20 hover:border-transparent group/item transition-colors duration-200"
+                >
+                    <Arrow
+                        class="size-5 text-white/45 group-hover/item:text-white"
+                    />
+                </a>
+            </div>
+            <h2 class="mt-1 text-2xl text-white font-semibold">
+                Teslo Shop - Tienda virtual
+            </h2>
+            <p class="text-white/40 mt-2 text-lg text-pretty">
+                Tienda virtual de ropa
+            </p>
+            <div class="flex flex-wrap gap-2 w-full mt-1">
+                {
+                    PROYECTOS[0].technologies.map((item) => (
+                        <span class="text-white/80">{item}</span>
+                    ))
+                }
+            </div>
+            <img
+                src="/images/teslo-shop.png"
+                alt="Imagen de la web de teslo shop creada por daniel castillo"
+                class="lg:w-[1200px] object-cover absolute top-60 md:top-44 right-0 group-hover:scale-105 transition duration-300 rounded-2xl"
+            />
+        </article>
+
+        <article
+            class="flex flex-col bg-white/10 w-full h-[500px] lg:h-auto col-span-2 lg:col-span-1 row-span-12 lg:row-span-7 rounded-2xl p-10 overflow-hidden relative group"
+        >
+            <div class="flex justify-between items-center">
+                <div class="flex gap-3 text-white/45 items-center">
+                    <Proyects class="size-5" />
+                    <h3 class="uppercase font-semibold">Experiencia Laboral</h3>
+                </div>
+                <a
+                    href="https://tesla-shop-daniel.vercel.app/"
+                    target="_blank"
+                    rel="norefered"
+                    class="border-2 border-white/20 rounded-full p-2 cursor-pointer hover:bg-white/20 hover:border-transparent group/item transition-colors duration-200"
+                >
+                    <Arrow
+                        class="size-5 text-white/45 group-hover/item:text-white"
+                    />
+                </a>
+            </div>
+            <h2 class="mt-1 text-2xl text-white font-semibold">
+                Teslo Shop - Tienda virtual
+            </h2>
+            <p class="text-white/40 mt-2 text-lg text-pretty">
+                Tienda virtual de ropa
+            </p>
+            <div class="flex flex-wrap gap-2 w-full mt-1">
+                {
+                    PROYECTOS[0].technologies.map((item) => (
+                        <span class="text-white/80">{item}</span>
+                    ))
+                }
+            </div>
+            <img
+                src="/images/teslo-shop.png"
+                alt="Imagen de la web de teslo shop creada por daniel castillo"
+                class="w-[1920px] object-cover absolute top-72 md:top-52 right-0 group-hover:scale-105 transition duration-300 rounded-2xl"
+            />
+        </article>
+        <article
+            class="bg-orange-500 col-span-2 lg:col-span-1 row-span-12 lg:row-span-5 rounded-2xl relative"
+        >
+        </article>
+    </div>
 </section>
