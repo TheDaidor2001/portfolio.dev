@@ -1,21 +1,30 @@
 ---
 import HeadingText from "./HeadingText.astro";
-import Proyects from "./icons/Proyects.astro";
-import Arrow from "./icons/Arrow-up-left.astro";
+import Link from "./icons/Link.astro";
 
 const PROYECTOS = [
     {
-        title: "Teslo Shop - Tienda virtual",
-        description: "Tienda virtual de ropa",
+        title: "Gartoll Web",
+        description:
+            "Una web corporativa para una empresa de Seguridad Privada.",
+        technologies: ["astro", "tailwindcss", "html5", "css", "typescript"],
+        image: "/images/gartoll-desktop.webp",
+        image2: "/images/gartoll-mobile.webp",
+        link: "https://www.gartoll-seguridad.com",
+    },
+    {
+        title: "Teslo Shop",
+        description: "Un ecommerce completo de ropa con inicio de sesión",
         technologies: [
-            "Next.js",
-            "TailwindCSS",
-            "PostgresSQL",
-            "Zustand",
-            "Typescript",
-            "Auth.js",
+            "nextjs",
+            "tailwindcss",
+            "html5",
+            "css",
+            "typescript",
+            "postgresql",
         ],
-        image: "/iamges/teslo-shop.png",
+        image: "/images/teslo-desktop.webp",
+        image2: "/images/teslo-mobile.webp",
         link: "https://tesla-shop-daniel.vercel.app/",
     },
 ];
@@ -24,128 +33,62 @@ const PROYECTOS = [
 <section class="my-20">
     <HeadingText
         title="Proyectos"
-        subtitle="Algunos de los proyectos en los que he trabajado"
+        subtitle="Grandes proyectos, grandes enseñanzas"
     />
 
-    <div class="grid grid-cols-2 grid-rows-12 mt-10 min-h-[700px] gap-5">
-        <article
-            class="flex flex-col bg-white/10 w-full h-[500px] lg:h-au col-span-2 lg:col-span-1 row-span-7 rounded-2xl px-10 p-8 overflow-hidden relative group"
-        >
-            <div class="flex justify-between items-center">
-                <div class="flex gap-3 text-white/45 items-center">
-                    <Proyects class="size-5" />
-                    <h3 class="uppercase font-semibold">Experiencia Laboral</h3>
-                </div>
-                <a
-                    href="https://tesla-shop-daniel.vercel.app/"
-                    target="_blank"
-                    rel="norefered"
-                    class="border-2 border-white/20 rounded-full p-2 cursor-pointer hover:bg-white/20 hover:border-transparent group/item transition-colors duration-200"
-                >
-                    <Arrow
-                        class="size-5 text-white/45 group-hover/item:text-white"
-                    />
-                </a>
-            </div>
-            <h2 class="mt-1 text-2xl text-white font-semibold">
-                Teslo Shop - Tienda virtual
-            </h2>
-            <p class="text-white/40 mt-2 text-lg text-pretty">
-                Tienda virtual de ropa
-            </p>
-            <div class="flex flex-wrap gap-2 w-full mt-1">
-                {
-                    PROYECTOS[0].technologies.map((item) => (
-                        <span class="text-white/80">{item}</span>
-                    ))
-                }
-            </div>
-            <img
-                src="/images/teslo-shop.png"
-                alt="Imagen de la web de teslo shop creada por daniel castillo"
-                class="w-[1920px] object-cover absolute top-80 sm:top-60 md:top-52 right-0 group-hover:scale-105 transition duration-300 rounded-2xl"
-            />
-        </article>
-        <article
-            class="flex flex-col bg-white/10 w-full col-span-2 lg:col-span-1 row-span-5 rounded-2xl px-10 p-8 overflow-hidden relative group"
-        >
-            <div class="flex justify-between items-center">
-                <div class="flex gap-3 text-white/45 items-center">
-                    <Proyects class="size-5" />
-                    <h3 class="uppercase font-semibold">Experiencia Laboral</h3>
-                </div>
-                <a
-                    href="https://tesla-shop-daniel.vercel.app/"
-                    target="_blank"
-                    rel="norefered"
-                    class="border-2 border-white/20 rounded-full p-2 cursor-pointer hover:bg-white/20 hover:border-transparent group/item transition-colors duration-200"
-                >
-                    <Arrow
-                        class="size-5 text-white/45 group-hover/item:text-white"
-                    />
-                </a>
-            </div>
-            <h2 class="mt-1 text-2xl text-white font-semibold">
-                Teslo Shop - Tienda virtual
-            </h2>
-            <p class="text-white/40 mt-2 text-lg text-pretty">
-                Tienda virtual de ropa
-            </p>
-            <div class="flex flex-wrap gap-2 w-full mt-1">
-                {
-                    PROYECTOS[0].technologies.map((item) => (
-                        <span class="text-white/80">{item}</span>
-                    ))
-                }
-            </div>
-            <img
-                src="/images/teslo-shop.png"
-                alt="Imagen de la web de teslo shop creada por daniel castillo"
-                class="lg:w-[1200px] object-cover absolute top-60 md:top-44 right-0 group-hover:scale-105 transition duration-300 rounded-2xl"
-            />
-        </article>
-
-        <article
-            class="flex flex-col bg-white/10 w-full h-[500px] lg:h-auto col-span-2 lg:col-span-1 row-span-12 lg:row-span-7 rounded-2xl p-10 overflow-hidden relative group"
-        >
-            <div class="flex justify-between items-center">
-                <div class="flex gap-3 text-white/45 items-center">
-                    <Proyects class="size-5" />
-                    <h3 class="uppercase font-semibold">Experiencia Laboral</h3>
-                </div>
-                <a
-                    href="https://tesla-shop-daniel.vercel.app/"
-                    target="_blank"
-                    rel="norefered"
-                    class="border-2 border-white/20 rounded-full p-2 cursor-pointer hover:bg-white/20 hover:border-transparent group/item transition-colors duration-200"
-                >
-                    <Arrow
-                        class="size-5 text-white/45 group-hover/item:text-white"
-                    />
-                </a>
-            </div>
-            <h2 class="mt-1 text-2xl text-white font-semibold">
-                Teslo Shop - Tienda virtual
-            </h2>
-            <p class="text-white/40 mt-2 text-lg text-pretty">
-                Tienda virtual de ropa
-            </p>
-            <div class="flex flex-wrap gap-2 w-full mt-1">
-                {
-                    PROYECTOS[0].technologies.map((item) => (
-                        <span class="text-white/80">{item}</span>
-                    ))
-                }
-            </div>
-            <img
-                src="/images/teslo-shop.png"
-                alt="Imagen de la web de teslo shop creada por daniel castillo"
-                class="w-[1920px] object-cover absolute top-72 md:top-52 right-0 group-hover:scale-105 transition duration-300 rounded-2xl"
-            />
-        </article>
-        <article
-            class="bg-orange-500 col-span-2 lg:col-span-1 row-span-12 lg:row-span-5 rounded-2xl relative"
-        >
-        </article>
+    <div class="space-y-5">
+        {
+            PROYECTOS.map((proyecto) => (
+                <article class="flex flex-col justify-between items-center lg:flex-row bg-white/10 rounded-xl py-20 p-10 lg:px-20 mt-10 group hover:scale-[1.03] lg:hover:bg-white/90 transition-all overflow-hidden">
+                    <div>
+                        <div class="flex gap-5 items-center justify-center">
+                            <h3 class="text-center lg:text-left font-bold text-4xl sm:text-5xl md:text-6xl lg:text-8xl  lg:group-hover:text-gray-950">
+                                {proyecto.title}
+                            </h3>
+                            <div class="hidden lg:block">
+                                <a
+                                    href={`${proyecto.link}`}
+                                    target="_blank"
+                                    rel="norefered noopener"
+                                >
+                                    <Link class="w-14 h-w-14 text-gray-950 bg-secondary rounded-full lg:block p-2 scale-0 transition-transform group-hover:scale-100" />
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-center lg:text-left text-white/80 text-md lg:text-lg lg:group-hover:text-gray-950">
+                            {proyecto.description}
+                        </p>
+                        <div class="flex items-center justify-center lg:justify-start mt-10 gap-3">
+                            {proyecto.technologies.map((item) => (
+                                <img
+                                    src={`/images/${item}.svg`}
+                                    alt=""
+                                    class="w-7 h-auto"
+                                />
+                            ))}
+                            <a
+                                href={`${proyecto.link}`}
+                                target="_blank"
+                                rel="norefered noopener"
+                            >
+                                <Link class="w-10 h-w-10 text-gray-950 bg-secondary rounded-full block  p-2 lg:hidden" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-3 lg:relative h-36 lg:h-52 lg:w-1/3 justify-center">
+                        <img
+                            src={`${proyecto.image}`}
+                            alt="Imagen de pagina web de gartol hecha por Daniel Castillo Balboa"
+                            class="h-auto w-full lg:absolute lg:-top-10 lg:right-0 hidden lg:block lg:group-hover:scale-75 lg:group-hover:opacity-0 transition-all ease-in-out"
+                        />
+                        <img
+                            src={`${proyecto.image2}`}
+                            alt="Imagen de pagina web de gartol hecha por Daniel Castillo Balboa"
+                            class="w-full h-fit top-0 lg:h-auto lg:w-full lg:absolute lg:-top-14 lg:right-0 lg:group-hover:scale-125 lg:scale-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all ease-in-out"
+                        />
+                    </div>
+                </article>
+            ))
+        }
     </div>
 </section>

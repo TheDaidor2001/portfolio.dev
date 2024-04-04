@@ -1,0 +1,44 @@
+---
+import HeadingText from "./HeadingText.astro";
+
+const TITULOS = [
+    {
+        title: "Curso de Javascript completo",
+        image: "/images/c-js.webp",
+    },
+    {
+        title: "Curso CSS",
+        image: "/images/c-css.webp",
+    },
+    {
+        title: "Curso Next- Framework de ReactJS",
+        image: "/images/c-next.webp",
+    },
+    {
+        title: "Curso VueJS",
+        image: "/images/c-vue.webp",
+    },
+];
+---
+
+<section class="my-20">
+    <HeadingText
+        title="Titulación"
+        subtitle="Algunos titulos que he adquirido con el tiempo"
+    />
+    <div
+        class="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-5 justify-center items-center"
+    >
+        {
+            TITULOS.map((titulo) => (
+                <article class="mt-10 hover:scale-105 transition-transform">
+                    <h2 class="text-xl my-2">{titulo.title}</h2>
+                    <img
+                        src={`${titulo.image}`}
+                        alt={`Imagen del titulo de ${titulo.title} de Daniel Castillo Balboa`}
+                    />
+                </article>
+            ))
+        }
+    </div>
+</section>
