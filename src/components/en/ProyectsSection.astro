@@ -1,19 +1,16 @@
 ---
-import HeadingText from "./HeadingText.astro";
-import Link from "./icons/Link.astro";
+import HeadingText from "../HeadingText.astro";
+import Link from "../icons/Link.astro";
 
-import { PROYECTOS } from "../data/proyectos";
+import { PROYECTOSENGLISH } from "../../data/proyectos";
 ---
 
 <section class="my-20">
-    <HeadingText
-        title="Proyectos"
-        subtitle="Grandes proyectos, grandes enseñanzas"
-    />
+    <HeadingText title="Projects" subtitle="Great projects, great teachings" />
 
     <div class="space-y-5">
         {
-            PROYECTOS.map((proyecto) => (
+            PROYECTOSENGLISH.map((proyecto) => (
                 <article class="flex flex-col justify-between items-center lg:flex-row bg-white/10 rounded-xl py-20 p-10 lg:px-20 mt-10 group hover:scale-[1.03] lg:hover:bg-white/90 transition-all overflow-hidden">
                     <div>
                         <div class="flex gap-5 items-center justify-center">

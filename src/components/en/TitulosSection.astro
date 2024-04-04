@@ -1,18 +1,18 @@
 ---
-import HeadingText from "./HeadingText.astro";
-import { TITULOS } from "../data/titulos";
+import HeadingText from "../HeadingText.astro";
+import { TITULOSENGLISH } from "../../data/titulos";
 ---
 
 <section class="my-20">
     <HeadingText
-        title="Titulación"
-        subtitle="Algunos titulos que he adquirido con el tiempo"
+        title="Certifications"
+        subtitle="Some titles I have acquired over time."
     />
     <div
         class="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-5 justify-center items-center"
     >
         {
-            TITULOS.map((titulo) => (
+            TITULOSENGLISH.map((titulo) => (
                 <article class="mt-10 hover:scale-105 transition-transform">
                     <h2 class="text-xl my-2">{titulo.title}</h2>
                     <img
