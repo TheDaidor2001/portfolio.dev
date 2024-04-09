@@ -31,6 +31,7 @@ export const PROYECTOS = [
             "css",
             "tailwindcss",
             "typescript",
+            "react"
         ],
         image: "/images/bank-desktop.webp",
         image2: "/images/bank-mobile.webp",
@@ -71,6 +72,7 @@ export const PROYECTOSENGLISH = [
             "css",
             "tailwindcss",
             "typescript",
+            "react"
         ],
         image: "/images/bank-desktop.webp",
         image2: "/images/bank-mobile.webp",
