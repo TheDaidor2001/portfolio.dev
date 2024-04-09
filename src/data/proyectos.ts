@@ -34,7 +34,7 @@ export const PROYECTOS = [
         ],
         image: "/images/bank-desktop.webp",
         image2: "/images/bank-mobile.webp",
-        link: "https://tesla-shop-daniel.vercel.app/",
+        link: "https://bank-web-2023.vercel.app/",
     },
 ];
 
@@ -62,5 +62,18 @@ export const PROYECTOSENGLISH = [
         image: "/images/teslo-desktop.webp",
         image2: "/images/teslo-mobile.webp",
         link: "https://tesla-shop-daniel.vercel.app/",
+    },
+    {
+        title: "Money Bank",
+        description: "Bank's landing page",
+        technologies: [
+            "html5",
+            "css",
+            "tailwindcss",
+            "typescript",
+        ],
+        image: "/images/bank-desktop.webp",
+        image2: "/images/bank-mobile.webp",
+        link: "https://bank-web-2023.vercel.app/",
     },
 ];
