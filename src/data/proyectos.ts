@@ -23,6 +23,19 @@ export const PROYECTOS = [
         image2: "/images/teslo-mobile.webp",
         link: "https://tesla-shop-daniel.vercel.app/",
     },
+    {
+        title: "Money Bank",
+        description: "Landing page de un banco",
+        technologies: [
+            "html5",
+            "css",
+            "tailwindcss",
+            "typescript",
+        ],
+        image: "/images/bank-desktop.webp",
+        image2: "/images/bank-mobile.webp",
+        link: "https://tesla-shop-daniel.vercel.app/",
+    },
 ];
 
 export const PROYECTOSENGLISH = [
