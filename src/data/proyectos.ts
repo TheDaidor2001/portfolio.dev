@@ -9,6 +9,15 @@ export const PROYECTOS = [
         link: "https://www.gartoll-seguridad.com",
     },
     {
+        title: "Radio Malabo",
+        description:
+            "Streaming de la radio nacional de Guinea Ecuatorial",
+        technologies: ["astro", "tailwindcss", "html5", "css", "typescript"],
+        image: "/images/r-malabo-desktop.webp",
+        image2: "/images/r-malabo-mobile.webp",
+        link: "https://www.radiomalabo.com/",
+    },
+    {
         title: "Teslo Shop",
         description: "Un ecommerce completo de ropa con inicio de sesión",
         technologies: [
@@ -23,20 +32,6 @@ export const PROYECTOS = [
         image2: "/images/teslo-mobile.webp",
         link: "https://tesla-shop-daniel.vercel.app/",
     },
-    {
-        title: "Money Bank",
-        description: "Landing page de un banco",
-        technologies: [
-            "html5",
-            "css",
-            "tailwindcss",
-            "typescript",
-            "react"
-        ],
-        image: "/images/bank-desktop.webp",
-        image2: "/images/bank-mobile.webp",
-        link: "https://bank-web-2023.vercel.app/",
-    },
 ];
 
 export const PROYECTOSENGLISH = [
@@ -48,6 +43,14 @@ export const PROYECTOSENGLISH = [
         image: "/images/gartoll-desktop.webp",
         image2: "/images/gartoll-mobile.webp",
         link: "https://www.gartoll-seguridad.com",
+    },
+    {
+        title: "Radio Malabo",
+        description: "Streaming of the national radio of Equatorial Guinea",
+        technologies: ["astro", "tailwindcss", "html5", "css", "typescript"],
+        image: "/images/r-malabo-desktop.webp",
+        image2: "/images/r-malabo-mobile.webp",
+        link: "https://www.radiomalabo.com/",
     },
     {
         title: "Teslo Shop",
@@ -63,19 +66,5 @@ export const PROYECTOSENGLISH = [
         image: "/images/teslo-desktop.webp",
         image2: "/images/teslo-mobile.webp",
         link: "https://tesla-shop-daniel.vercel.app/",
-    },
-    {
-        title: "Money Bank",
-        description: "Bank's landing page",
-        technologies: [
-            "html5",
-            "css",
-            "tailwindcss",
-            "typescript",
-            "react"
-        ],
-        image: "/images/bank-desktop.webp",
-        image2: "/images/bank-mobile.webp",
-        link: "https://bank-web-2023.vercel.app/",
-    },
+    }
 ];
