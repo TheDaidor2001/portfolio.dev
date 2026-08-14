@@ -22,7 +22,7 @@ export const PROYECTOS: Proyecto[] = [
         },
         technologies: ["astro", "tailwindcss", "html5", "css", "typescript"],
         image: "/images/spiderman_desktop.png",
-        image2: "/images/spiderman-mobile.webp",
+        image2: "/images/spiderman-mobile.png",
         link: "https://spidermanbrandnewday.es/",
     },
     {
