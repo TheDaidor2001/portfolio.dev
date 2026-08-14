@@ -1,12 +1,12 @@
 export const PROYECTOS = [
     {
-        title: "Gartoll Web",
+        title: "Spider-Man Brand New Day",
         description:
-            "Una web corporativa para una empresa de Seguridad Privada.",
+            "Una web promocional para la película de Spider-Man Brand New Day.",
         technologies: ["astro", "tailwindcss", "html5", "css", "typescript"],
-        image: "/images/gartoll-desktop.webp",
-        image2: "/images/gartoll-mobile.webp",
-        link: "https://www.gartoll-seguridad.com",
+        image: "/images/spiderman_desktop.png",
+        image2: "/images/spiderman-mobile.png",
+        link: "https://spidermanbrandnewday.es/",
     },
     {
         title: "Radio Malabo",
