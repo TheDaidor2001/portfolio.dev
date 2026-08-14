@@ -1,12 +1,14 @@
 ---
 import HeadingText from "./HeadingText.astro";
 import MarqueeSection from "./MarqueeSection.astro";
+import { getLocale } from "../i18n/utils";
+import { useTranslations } from "../i18n/ui";
+
+const locale = getLocale(Astro.url.pathname);
+const t = useTranslations(locale).technologies;
 ---
 
 <section class="my-20">
-    <HeadingText
-        title="Tecnologías"
-        subtitle="Algunas de las tecnologías que he utilizado"
-    />
+    <HeadingText title={t.title} subtitle={t.subtitle} />
     <MarqueeSection />
 </section>

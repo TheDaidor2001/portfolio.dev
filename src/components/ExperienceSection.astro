@@ -2,53 +2,20 @@
 import HeadingText from "./HeadingText.astro";
 import Logo from "./Logo.astro";
 import Link from "./icons/Link.astro";
+import { EXPERIENCIA } from "../data/experiencia";
+import { getLocale } from "../i18n/utils";
+import { useTranslations } from "../i18n/ui";
 
-const EXPERIENCE = [
-    {
-        nombre: "InfoJobs",
-        puesto: "Front-End Developer",
-        duration: "Jul 2026 - Ago 2026",
-        current: false,
-        description:
-            "Desarrollo de la web promocional de la película de Spider-man Brand New Day. Implementación de animaciones y efectos visuales para mejorar la experiencia del usuario.",
-        highlights: [
-            "AstroJS",
-            "TypeScript",
-            "Design System",
-            "Accesibilidad",
-            "Gsap",
-            "TailwindCSS",
-        ],
-        url: "https://spidermanbrandnewday.es/",
-        logo: "/images/infojobs_logo.png",
-        icon: null,
-        bg_url: "/images/bg-2.webp",
-    },
-    {
-        nombre: "Freelance",
-        puesto: "Web Developer",
-        duration: "Jun 2024 - Actualmente",
-        current: true,
-        description:
-            "Diseño y construyo webs a medida de principio a fin: hablo con el cliente, defino la interfaz, la desarrollo y la despliego. Webs rápidas, responsive y pensadas para posicionar y convertir.",
-        highlights: ["Astro", "Next.js", "Tailwind", "SEO"],
-        url: "https://github.com/TheDaidor2001",
-        logo: null,
-        icon: Logo,
-        bg_url: "/images/bg-gartoll.webp",
-    },
-];
+const locale = getLocale(Astro.url.pathname);
+const t = useTranslations(locale).experience;
 ---
 
 <section class="mt-64 lg:my-20">
-    <HeadingText
-        title="Experiencia"
-        subtitle="He trabajado en proyectos para empresas como"
-    />
+    <HeadingText title={t.title} subtitle={t.subtitle} />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-12">
         {
-            EXPERIENCE.map((item, index) => (
+            EXPERIENCIA.map((item, index) => (
                 <article
                     class="exp-reveal h-full"
                     style={`--delay: ${index * 150}ms`}
@@ -75,15 +42,14 @@ const EXPERIENCE = [
                         <div class="relative z-10 flex h-full flex-col">
                             <header class="flex items-start justify-between gap-4">
                                 <div class="exp-logo flex size-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-500 group-hover:border-secondary/40 group-hover:bg-white/10">
-                                    {item.logo && (
+                                    {item.logo ? (
                                         <img
                                             src={`${item.logo}`}
-                                            alt={`Logo de ${item.nombre}`}
+                                            alt={t.logoAlt(item.nombre)}
                                             class="size-10 object-contain"
                                         />
-                                    )}
-                                    {item.icon && (
-                                        <item.icon
+                                    ) : (
+                                        <Logo
                                             class="text-lg px-2 py-1"
                                             classDiv=""
                                         />
@@ -97,7 +63,7 @@ const EXPERIENCE = [
                                             <span class="relative inline-flex size-2 rounded-full bg-secondary" />
                                         </span>
                                     )}
-                                    {item.duration}
+                                    {item.duration[locale]}
                                 </span>
                             </header>
 
@@ -106,13 +72,13 @@ const EXPERIENCE = [
                                     {item.nombre}
                                 </p>
                                 <h3 class="mt-2 text-3xl lg:text-4xl text-white">
-                                    {item.puesto}
+                                    {item.puesto[locale]}
                                 </h3>
 
                                 <span class="exp-line mt-4 block h-px w-12 bg-gradient-to-r from-secondary to-transparent" />
 
                                 <p class="mt-5 text-[15px] leading-relaxed text-white/70 transition-colors duration-500 group-hover:text-white/90">
-                                    {item.description}
+                                    {item.description[locale]}
                                 </p>
 
                                 <ul class="mt-6 flex flex-wrap gap-2">
@@ -133,7 +99,7 @@ const EXPERIENCE = [
                                 rel="noopener noreferrer"
                                 class="mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-secondary/30 bg-secondary/10 px-5 py-2.5 text-sm font-medium text-secondary transition-colors duration-300 hover:bg-secondary hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                             >
-                                Visita {item.nombre}
+                                {t.cta(item.nombre)}
                                 <Link class="exp-arrow size-4" />
                             </a>
                         </div>

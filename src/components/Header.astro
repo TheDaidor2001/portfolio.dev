@@ -2,10 +2,17 @@
 import Lenguage from "./icons/Lenguage.astro";
 import Download from "./icons/Download.astro";
 import Logo from "./Logo.astro";
+import {
+    LOCALES,
+    LOCALE_NAMES,
+    getLocale,
+    localizePath,
+} from "../i18n/utils";
+import { useTranslations } from "../i18n/ui";
 
 const { pathname } = Astro.url;
-const getlocaleCV =
-    pathname === "/" ? "/cv/cvSpanish.pdf" : "/cv/cvEnglish.pdf";
+const locale = getLocale(pathname);
+const t = useTranslations(locale).header;
 ---
 
 <header
@@ -17,28 +24,132 @@ const getlocaleCV =
         <div>
             <Logo />
         </div>
-        <div class="flex items-center gap-5">
-            <div class="relative group">
-                <Lenguage class="text-white size-6 cursor-pointer" />
-                <div
-                    class="absolute top-6 right-0 w-auto h-auto z-50 bg-gray-900 p-5 text-white hidden group-hover:block rounded-2xl transition"
+        <div class="flex items-center gap-3 sm:gap-5">
+            <details class="lang-switch relative">
+                <summary
+                    class="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                    aria-label={t.langMenu}
+                    title={t.langMenu}
                 >
-                    <a href="/">
-                        {pathname === "/" ? "Español" : "Spanish"}
-                    </a>
-                    <a href="/en">
-                        {pathname === "/" ? "Inglés" : "English"}
-                    </a>
-                </div>
-            </div>
+                    <Lenguage class="size-5 shrink-0" />
+                    <span class="uppercase tracking-wide">{locale}</span>
+                    <svg
+                        class="lang-chevron size-4 text-white/60 transition-transform duration-300"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                </summary>
+
+                <ul
+                    class="lang-menu absolute right-0 top-[calc(100%+0.5rem)] z-50 w-44 overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/95 p-1.5 shadow-2xl backdrop-blur-lg"
+                >
+                    {
+                        LOCALES.map((code) => (
+                            <li>
+                                <a
+                                    href={localizePath(pathname, code)}
+                                    hreflang={code}
+                                    lang={code}
+                                    aria-current={
+                                        code === locale ? "true" : undefined
+                                    }
+                                    class:list={[
+                                        "flex items-center justify-between gap-3 rounded-xl px-3 py-2 text-sm transition-colors",
+                                        code === locale
+                                            ? "bg-white/10 font-semibold text-secondary"
+                                            : "text-white/80 hover:bg-white/10 hover:text-white",
+                                    ]}
+                                >
+                                    {LOCALE_NAMES[code]}
+                                    <span class="text-xs uppercase tracking-wide opacity-60">
+                                        {code}
+                                    </span>
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </details>
+
             <a
-                href={getlocaleCV}
+                href={t.cvFile}
                 target="_blank"
-                class="bg-white px-4 py-2 rounded-full flex items-center gap-2 hover:scale-105 transition font-semibold"
+                rel="noopener noreferrer"
+                download
+                class="bg-white px-4 py-2 rounded-full flex items-center gap-2 hover:scale-105 transition font-semibold whitespace-nowrap"
             >
                 <Download class="size-4" />
-                Dowload CV
+                {t.cv}
             </a>
         </div>
     </nav>
 </header>
+
+<style>
+    /* Quita el triángulo nativo del <summary> en todos los navegadores */
+    .lang-switch summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .lang-switch summary::marker {
+        content: "";
+    }
+
+    .lang-switch[open] .lang-chevron {
+        transform: rotate(180deg);
+    }
+
+    .lang-menu {
+        animation: lang-in 0.18s ease-out;
+    }
+
+    @keyframes lang-in {
+        from {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .lang-menu {
+            animation: none;
+        }
+
+        .lang-chevron {
+            transition: none;
+        }
+    }
+</style>
+
+<script>
+    const langSwitch = document.querySelector<HTMLDetailsElement>(".lang-switch");
+
+    if (langSwitch) {
+        // Cerrar al hacer clic fuera
+        document.addEventListener("click", (event) => {
+            if (!langSwitch.open) return;
+            if (!langSwitch.contains(event.target as Node)) {
+                langSwitch.open = false;
+            }
+        });
+
+        // Cerrar con Escape y devolver el foco al botón
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && langSwitch.open) {
+                langSwitch.open = false;
+                langSwitch.querySelector("summary")?.focus();
+            }
+        });
+    }
+</script>

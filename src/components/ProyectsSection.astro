@@ -1,15 +1,16 @@
 ---
 import HeadingText from "./HeadingText.astro";
 import Link from "./icons/Link.astro";
-
 import { PROYECTOS } from "../data/proyectos";
+import { getLocale } from "../i18n/utils";
+import { useTranslations } from "../i18n/ui";
+
+const locale = getLocale(Astro.url.pathname);
+const t = useTranslations(locale).projects;
 ---
 
 <section class="my-20">
-    <HeadingText
-        title="Proyectos"
-        subtitle="Grandes proyectos, grandes enseñanzas"
-    />
+    <HeadingText title={t.title} subtitle={t.subtitle} />
 
     <div class="space-y-5">
         {
@@ -31,7 +32,7 @@ import { PROYECTOS } from "../data/proyectos";
                             </div>
                         </div>
                         <p class="text-center lg:text-left text-white/80 text-md lg:text-lg lg:group-hover:text-gray-950">
-                            {proyecto.description}
+                            {proyecto.description[locale]}
                         </p>
                         <div class="flex items-center justify-center lg:justify-start mt-10 gap-3">
                             {proyecto.technologies.map((item) => (
@@ -53,13 +54,13 @@ import { PROYECTOS } from "../data/proyectos";
                     <div class="relative w-[85%] mx-auto aspect-[4/3]">
                         <img
                             src={`${proyecto.image}`}
-                            alt={`Vista de escritorio de ${proyecto.title}, web hecha por Daniel Castillo Balboa`}
+                            alt={t.desktopAlt(proyecto.title)}
                             loading="lazy"
                             class="absolute inset-0 h-full w-full object-contain hidden lg:block lg:group-hover:scale-90 lg:group-hover:opacity-0 transition-all duration-500 ease-in-out"
                         />
                         <img
                             src={`${proyecto.image2}`}
-                            alt={`Vista móvil de ${proyecto.title}, web hecha por Daniel Castillo Balboa`}
+                            alt={t.mobileAlt(proyecto.title)}
                             loading="lazy"
                             class="absolute inset-0 h-full w-full object-contain scale-125 lg:opacity-0 lg:group-hover:scale-[1.35] lg:group-hover:opacity-100 transition-all duration-500 ease-in-out"
                         />

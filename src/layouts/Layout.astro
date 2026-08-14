@@ -1,56 +1,58 @@
 ---
 import Header from "../components/Header.astro";
+import { getLocale, localizeUrl } from "../i18n/utils";
+import { useTranslations } from "../i18n/ui";
 import "@fontsource-variable/outfit";
 import "@fontsource/bangers";
 
-interface Props {
-	title: string;
-}
+const { pathname } = Astro.url;
+const locale = getLocale(pathname);
+const t = useTranslations(locale).meta;
 
-const { title } = Astro.props;
+const canonical = localizeUrl(pathname, locale);
+const alternateEs = localizeUrl(pathname, "es");
+const alternateEn = localizeUrl(pathname, "en");
+
+const OG_LOCALES = { es: "es_ES", en: "en_US" } as const;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Portfolio de Daniel Castillo Balboa. Programador FullStack de España y Guinea Ecuatorial"
-		/>
+		<meta name="description" content={t.description} />
 		<meta name="viewport" content="width=device-width" />
+
+		<!-- URLs canónicas y versiones por idioma -->
+		<link rel="canonical" href={canonical} />
+		<link rel="alternate" hreflang="es" href={alternateEs} />
+		<link rel="alternate" hreflang="en" href={alternateEn} />
+		<link rel="alternate" hreflang="x-default" href={alternateEs} />
+
 		<!--Twitter tags -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta
-			name="twitter:description"
-			content="Estar al tanto de las últimas tendencias sobre diseño web es una de las prácticas de inspiración de los mejores profesionales."
-		/>
-		<meta
-			name="twitter:title"
-			content="Inspiración para el diseño web: recursos online imprescindibles"
-		/>
+		<meta name="twitter:title" content={t.ogTitle} />
+		<meta name="twitter:description" content={t.ogDescription} />
 		<meta name="twitter:image" content="/images/compartir.webp" />
 		<meta name="twitter:creator" content="@Daniel_ccch" />
 
 		<!-- Etiquetas Open Graph-->
-		<meta property="og:locale" content="es_ES" />
+		<meta property="og:locale" content={OG_LOCALES[locale]} />
+		<meta
+			property="og:locale:alternate"
+			content={OG_LOCALES[locale === "es" ? "en" : "es"]}
+		/>
 		<meta property="og:type" content="website" />
-		<meta
-			property="og:title"
-			content="Portfolio de Daniel Castillo Balboa. FullStack developer"
-		/>
-		<meta
-			property="og:description"
-			content="Programador FullStack con +2 años de experiencia de España y Guinea Ecuatorial."
-		/>
+		<meta property="og:title" content={t.ogTitle} />
+		<meta property="og:description" content={t.ogDescription} />
 		<meta property="og:site_name" content="Daniel Castillo Balboa" />
-		<meta property="og:url" content="https://danielportfolio.dev" />
+		<meta property="og:url" content={canonical} />
 		<meta property="og:image" content="/images/compartir.webp" />
 		<meta property="og:image:secure_url" content="/images/compartir.webp" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="600" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
+		<title>{t.title}</title>
 	</head>
 	<body class="select-none">
 		<div

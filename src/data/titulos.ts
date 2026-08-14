@@ -1,37 +1,37 @@
-export const TITULOS = [
-    {
-        title: "Curso de Javascript completo",
-        image: "/images/c-js.webp",
-    },
-    {
-        title: "Curso CSS",
-        image: "/images/c-css.webp",
-    },
-    {
-        title: "Curso Next- Framework de ReactJS",
-        image: "/images/c-next.webp",
-    },
-    {
-        title: "Curso VueJS",
-        image: "/images/c-vue.webp",
-    },
-];
+import type { Translated } from "./experiencia";
 
-export const TITULOSENGLISH = [
+export interface Titulo {
+    title: Translated;
+    image: string;
+}
+
+export const TITULOS: Titulo[] = [
     {
-        title: "Complete JavaScript course",
+        title: {
+            es: "Curso de Javascript completo",
+            en: "Complete JavaScript course",
+        },
         image: "/images/c-js.webp",
     },
     {
-        title: "CSS course",
+        title: {
+            es: "Curso CSS",
+            en: "CSS course",
+        },
         image: "/images/c-css.webp",
     },
     {
-        title: "Next.js - ReactJS Framework Course",
+        title: {
+            es: "Curso Next- Framework de ReactJS",
+            en: "Next.js - ReactJS Framework Course",
+        },
         image: "/images/c-next.webp",
     },
     {
-        title: "VueJS course",
+        title: {
+            es: "Curso VueJS",
+            en: "VueJS course",
+        },
         image: "/images/c-vue.webp",
     },
 ];

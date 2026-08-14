@@ -3,6 +3,11 @@ import SocialBtn from "./SocialBtn.astro";
 import Github from "./icons/Github.astro";
 import Linkedin from "./icons/Linkedin.astro";
 import Mail from "./icons/Mail.astro";
+import { getLocale } from "../i18n/utils";
+import { useTranslations } from "../i18n/ui";
+
+const locale = getLocale(Astro.url.pathname);
+const t = useTranslations(locale).info;
 
 const SOCIALITEMS = [
     {
@@ -33,19 +38,19 @@ const SOCIALITEMS = [
             <a
                 href="https://www.linkedin.com/in/daniel-castillo-balboa"
                 target="_blank"
-                rel="norefered"
+                rel="noopener noreferrer"
                 class="inline-flex h-full animate-background-shine cursor-pointer items-center justify-center gap-3 rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-3 py-2 text-sm font-medium text-slate-300 backdrop-blur-3xl hover:scale-105 transition"
             >
                 <span class="bg-green-500 w-4 h-4 rounded-full animate-pulse"
                 ></span>
-                Disponible para trabajar
+                {t.openToWork}
             </a>
         </div>
         <div
             class="w-full z-50 h-full p-5 flex flex-col content-end justify-end"
         >
             <h1 class="text-white text-3xl">Daniel Castillo Balboa</h1>
-            <p class="text-white text-lg">FullStack Developer</p>
+            <p class="text-white text-lg">{t.role}</p>
             <div class="flex gap-x-5 mt-2">
                 {
                     SOCIALITEMS.map((item) => (
@@ -63,18 +68,15 @@ const SOCIALITEMS = [
     <div
         class="bg-white/10 h-full flex flex-col justify-center content-center col-span-6 lg:col-span-2 row-span-6 rounded-2xl p-10"
     >
-        <h3 class="text-2xl text-white">Sobre mí</h3>
-        <p class="text-white/45 test-sm">
-            Desarrollador Web con experiencia en la creación y mantenimiento de
-            aplicaciones web.
-        </p>
+        <h3 class="text-2xl text-white">{t.aboutTitle}</h3>
+        <p class="text-white/45 test-sm">{t.aboutText}</p>
     </div>
     <div class="grid grid-cols-2 gap-5 col-span-6 lg:col-span-2 row-span-6">
         <div
             class="bg-white/10 col-span-1 rounded-2xl text-center flex flex-col justify-center content-center relative"
         >
             <p class="text-6xl text-white font-bold">+2</p>
-            <p class="text-sm text-white/60">Años de experiencia</p>
+            <p class="text-sm text-white/60">{t.yearsLabel}</p>
         </div>
         <div
             class="bg-white/10 col-span-1 rounded-2xl flex flex-col justify-center content-center py-5"
@@ -82,11 +84,9 @@ const SOCIALITEMS = [
             <img
                 src="/images/yo.png"
                 class="w-14 md:w-20 h-auto mx-auto"
-                alt="Imagen emoji de Daniel Castillo"
+                alt={t.avatarAlt}
             />
-            <p class="text-white/60 text-sm text-center mt-2">
-                De La Rioja, España
-            </p>
+            <p class="text-white/60 text-sm text-center mt-2">{t.location}</p>
         </div>
     </div>
 </section>
